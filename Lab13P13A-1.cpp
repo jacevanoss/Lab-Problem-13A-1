@@ -1,3 +1,10 @@
+/* Date: 12/5/24
+* Name: Jace Van Oss
+* File:Lab13P13A-1.cpp
+* 
+* Description: determines the number of letters in a file and determines the frequency of each letter
+*/
+
 #include <iostream>
 #include <fstream>
 #include <cctype>
@@ -21,17 +28,17 @@ int main() {
 	int totalLetters = 0;
 	char letter;
 	while (file.get(letter)) {
-		if (isalpha(letter)) {
-			letter = tolower(letter);
+		if (isalpha(letter)) { // checks if its a letter
+			letter = tolower(letter); // changes all letters to lowercase
 			letterCount[letter - 'a']++;
 			totalLetters++;
 		}
 	}
 	cout << "Total number of letters: " << totalLetters << endl;
 	cout << "Frequency: " << endl;
-	for (int i = 0; i < 26; i++) {
+	for (int i = 0; i < 26; i++) { // for loop to print out the different frequencies 
 		double frequency = (double)letterCount[i] / totalLetters * 100;
-		cout << "'" << (char)('A' + i) << "': " << fixed << setprecision(3) << frequency << endl;
+		cout << "'" << (char)('A' + i) << "': " << fixed << setprecision(3) << frequency << endl; // prints out the different letters
 	}
 	pressEnterToConinue();
 
